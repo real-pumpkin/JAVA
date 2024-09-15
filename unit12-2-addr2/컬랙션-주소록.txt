@@ -1,0 +1,55 @@
+[[ 주소록 프로그램 작성 ]]
+
+-- 실행화면
+  1.등록 2.수정 3.삭제 4.이름검색 5.리스트 6.종료 =>
+
+  
+-- 등록할 데이터 
+  이름, 전화번호, 생년월일, 주소, 등록일  
+  
+  : 등록일은 컴퓨터 시스템 날짜(yyyy-MM-dd 형식)
+  : 단, 이름과 전화번호가 동일하면 등록불가
+  : 생년월일은 yyyy-MM-dd 형식 및 날짜입력이 잘못된 경우 등록 불가(선택사항)
+
+
+-- 출력
+  이름  전화번호  생년월일  나이  주소  등록일
+
+ : 나이는 선택사항
+
+
+-- 클래스
+  - ch12.addr.AddressVO
+    name, tel, birth, addr, regDate : String
+
+
+  - ch12.addr.Address : 인터페이스
+    insertAddress(AddressVO vo) : void
+    readAddress(String name, String tel) : AddressVO
+    listAddress() : List<AddressVO> 
+    listAddress(String name) : List<AddressVO>
+    deleteAddress(String name, String tel) : boolean
+	
+    MyDuplicationException 클래스를 만들어 중복데이터가 입력 되지 않도록 할것(선택사항)
+
+
+  - ch12.addr.AddressImpl : Address 인터페이스 구현 클래스
+     private List<AddressVO> list = new ArrayList<>()
+	 
+  
+  - ch12.addr.AddressUI : 입출력 클래스
+    필드
+       BufferedReader 클래스 객체
+       Address 객체
+
+    메소드
+       menu() : 메뉴
+       insert() : 추가
+       update() : 수정
+       delete() : 삭제
+       findByName() : 이름검색
+       list() : 출력	  
+	   
+  - ch12.addr.App : main()
+   
+-- 기타는 자유
